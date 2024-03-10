@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      
+<ul>
+    <!-- Iterate over object_list -->
+    {% for o in object_list %}
+    <!-- Display Objects -->
+    <li>{{ o.first_name }}</li>
+    <li>{{ o.last_name }}</li>
+    <li>{{ o.email }}</li>
+    <a href="{% url 'delete_data' o.id %}"><button>Done</button></a>
+    <a href="{% url 'update_data' o.id %}"><button>Update</button></a>
+
+    <hr/>
+    <!-- If object_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
